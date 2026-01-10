@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kişisel Websitem</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{{ isim }} Kişisel Web Sitesi</h1>
+    </header>
+
+    <main>
+        <p>Merhaba! Ben bir öğrenciyim.</p>
+        <p>Bugünün tarihi: {{ tarih }}</p>
+    </main>
+</body>
+</html>
