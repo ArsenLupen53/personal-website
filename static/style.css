@@ -22,3 +22,19 @@ main {
     margin-top: 20px;
     text-align: center;
 }
+
+
+ nav {
+    margin: 20px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+    padding: 10px;
+}
+
+nav a:hover {
+    color: #2980b9;
+}

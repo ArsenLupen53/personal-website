@@ -11,6 +11,9 @@ def ana_sayfa():
 
     return render_template("index.html",isim=kullanici_adi,zaman=zaman,tarih=zaman)
 
+@app.route('/hakkimda')
+def hakkimda():
+    return render_template("hakkimda.html")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8080)
