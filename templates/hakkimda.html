@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <title>Hakkımda</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <nav>
-        <a href="/">Ana Sayfa</a> | 
-        <a href="/hakkimda">Hakkımda</a>
-    </nav>
-    <header>
-        <h1>Hakkımda</h1>
-    </header>
-    <main>
-        <p>Ben Python ile web geliştirmeyi öğreniyorum!</p>
-    </main>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Hakkımda - Kişisel Sitem{% endblock %}
+
+{% block header %}
+    <h1>Hakkımda</h1>
+{% endblock %}
+
+{% block content %}
+    <img src="{{ url_for('static', filename='profil.png') }}" alt="Ahmet Berk Profil Fotoğrafı" class="profil-resmi">
+    <p>Ben Python ile web geliştirmeyi öğreniyorum! Bu sayfayı "Şablon Kalıtımı" (Template Inheritance) kullanarak oluşturdum.</p>
+{% endblock %}

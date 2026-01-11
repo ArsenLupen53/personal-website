@@ -38,3 +38,12 @@ nav a {
 nav a:hover {
     color: #2980b9;
 }
+
+.profil-resmi {
+    width: 200px;         /* Genişlik */
+    height: 200px;        /* Yükseklik */
+    border-radius: 50%;   /* Yuvarlak yapar */
+    border: 5px solid #2c3e50; /* Kenarlık ekler */
+    object-fit: cover;    /* Resmin bozulmasını önler */
+    margin-bottom: 20px;
+}
