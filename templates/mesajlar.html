@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Gelen Mesajlar{% endblock %}
+{% block content %}
+    <h2>Gelen Kutusu</h2>
+    {% for mesaj in mesajlar %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
+            <strong>Gönderen:</strong> {{ mesaj.isim }} <br>
+            <strong>Mesaj:</strong> {{ mesaj.icerik }} <br>
+            <small>Tarih: {{ mesaj.tarih.strftime('%d/%m/%Y %H:%M') }}</small>
+        </div>
+    {% endfor %}
+{% endblock %}
