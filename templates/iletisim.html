@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}İletişim{% endblock %}
+
+{% block header %}
+    <h1>Bana Mesaj Gönder</h1>
+{% endblock %}
+
+{% block content %}
+    <form action="/iletisim" method="POST" style="display: flex; flex-direction: column; width: 300px; margin: auto; gap: 10px;">
+        <input type="text" name="isim" placeholder="Adınız" required>
+        <textarea name="mesaj" placeholder="Mesajınız" required></textarea>
+        <button type="submit">Gönder</button>
+    </form>
+{% endblock %}
