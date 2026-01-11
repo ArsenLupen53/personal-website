@@ -18,6 +18,11 @@ class Mesaj(db.Model):
     icerik = db.Column(db.Text, nullable=False)
     tarih = db.Column(db.DateTime, default=datetime.utcnow)
 
+class Yazi(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    baslik = db.Column(db.String(200), nullable=False)
+    icerik = db.Column(db.Text, nullable=False)
+    tarih = db.Column(db.DateTime, default=datetime.utcnow)
 
 with app.app_context():
     db.create_all()
@@ -57,6 +62,12 @@ def iletisim():
 def mesajlari_listele():
     tum_mesajlar = Mesaj.query.all() # Veritabanındaki tüm mesajları çek
     return render_template("mesajlar.html", mesajlar=tum_mesajlar)
+
+@app.route('/blog')
+def blog():
+    yazilar = Yazi.query.order_by(Yazi.tarih.desc()).all()
+    return render_template("blog.html", yazilar=yazilar)
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
