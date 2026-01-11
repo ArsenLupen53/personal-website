@@ -1,7 +1,8 @@
-from flask import Flask,render_template, request
+from flask import Flask,render_template, request,flash,redirect,url_for
 from datetime import datetime
 
 app = Flask(__name__)
+app.secret_key = "çok_gizli_bir_anahtar" #Flash mesajlar için bu şarttır
 
 @app.route('/')
 
@@ -15,19 +16,21 @@ def ana_sayfa():
 def hakkimda():
     return render_template("hakkimda.html")
 
-if __name__ == '__main__':
-    app.run(debug=True, port=8080)
 
 @app.route('/iletisim', methods=['GET', 'POST'])
 def iletisim():
     if request.method == 'POST':
-        # Formdan gelen verileri alıyoruz
         gonderen = request.form.get('isim')
         mesaj = request.form.get('mesaj')
         
-        # Şimdilik sadece terminale yazdıralım (Veritabanı yerine)
-        print(f"YENİ MESAJ! Gönderen: {gonderen}, Mesaj: {mesaj}")
+        # Gerçek bir uygulamada burada veritabanına kayıt yapılır
+        print(f"Mesaj: {gonderen} - {mesaj}")
         
-        return f"<h1>Teşekkürler {gonderen}! Mesajın başarıyla alındı.</h1><a href='/'>Geri Dön</a>"
+        # Kullanıcıya mesaj gönderildiğini bildir
+        flash(f"Teşekkürler {gonderen}, mesajın başarıyla alındı!")
+        return redirect(url_for('iletisim')) # Sayfayı yeniler ve formu temizler
     
     return render_template("iletisim.html")
+
+if __name__ == '__main__':
+    app.run(debug=True, port=8080)

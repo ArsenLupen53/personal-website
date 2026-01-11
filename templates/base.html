@@ -11,7 +11,15 @@
         <a href="/hakkimda">Hakkımda</a>
         <a href="/iletisim">İletişim</a>
     </nav>
-
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div style="background-color: #d4edda; color: #155724; padding: 10px; margin: 10px; border-radius: 5px; text-align: center;">
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
     <header>
         {% block header %}{% endblock %}
     </header>
