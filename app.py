@@ -1,11 +1,14 @@
 from flask import Flask,render_template, request,flash,redirect,url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 app.secret_key = "çok_gizli_bir_anahtar" #Flash mesajlar için bu şarttır
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mesajlar.db'
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'mesajlar.db')
 db = SQLAlchemy(app)
 
 # Veritabanı Tablosu (Modeli) - Doğru Hali
