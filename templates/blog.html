@@ -7,8 +7,7 @@
         <article style="text-align: left; max-width: 600px; margin: 20px auto; border-bottom: 1px solid #ddd; padding-bottom: 20px;">
             <h2>{{ yazi.baslik }}</h2>
             <small>{{ yazi.tarih.strftime('%d %B %Y') }}</small>
-            <p>{{ yazi.icerik[:200] }}...</p>
-            <a href="#">Devamını oku</a>
+            <p>{{ yazi.icerik }}</p>
         </article>
     {% else %}
         <p>Henüz bir yazı paylaşılmadı.</p>
